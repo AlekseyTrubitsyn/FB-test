@@ -1,0 +1,14 @@
+@mixin pageHeaderFont() {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 36px;
+}
+
+body {
+    font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+@font-face {
+    font-family: 'Exo 2', sans-serif;
+    src: url("Exo2.0-Thin.otf") format("otf");
+}
