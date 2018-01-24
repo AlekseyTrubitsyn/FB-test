@@ -7,7 +7,8 @@ const gulp = require('gulp'),
   pug = require('gulp-pug'),
   prefix = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
-  browserSync = require('browser-sync');
+  browserSync = require('browser-sync'),
+  fs = require('fs');
 
 /*
  * Diretórios aqui
@@ -24,6 +25,11 @@ const paths = {
  */
 gulp.task('pug', function () {
   return gulp.src('./src/**/*.pug')
+    .pipe(data( function(file) {
+                return JSON.parse(
+                  fs.readFileSync('./src/data.json')
+                );
+              } ))
     .pipe(pug())
     .pipe(gulp.dest(paths.public));
 });

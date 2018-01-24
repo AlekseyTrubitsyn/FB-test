@@ -1,0 +1,18 @@
+each item in items
+  .catalog-item
+    .catalog-item__header
+      .catalog-item-header__corner
+      p.catalog-item-header__text= item.headerText
+    .catalog-item__main
+      h2.catalog-item-main__title= item.title
+      h3.catalog-item-main__subtitle= item.subtitle
+      each feature in item.description
+        p.catalog-item-main__description=feature
+      img(src=item.imageSrc width="312" height="268").catalog-item-main__image
+      p.catalog-item-main__quantity
+        span=item.quantity
+        span кг
+    .catalog-item__footer
+      p Чего сидишь? Порадуй котэ, 
+        a.catalog-item-footer__link(href="#") купи
+        span .
