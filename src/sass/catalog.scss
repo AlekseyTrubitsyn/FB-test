@@ -1,0 +1,20 @@
+@import "media-variables";
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: $max-tablet-width) and (min-width: $min-tablet-width) {
+    .catalog {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: $min-tablet-width) {
+    .catalog {
+        flex-direction: column;
+    }
+}

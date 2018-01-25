@@ -1,6 +1,8 @@
 @import "fonts";
 @import "colors-and-backgrounds";
+@import "catalog";
 @import "catalog-item";
+@import "media-variables";
 
 * { box-sizing: border-box; }
 
@@ -19,7 +21,6 @@ li {
     list-style: none;
 }
 
-body,
 html {
     height: 100%;
 }
@@ -30,11 +31,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // flex-wrap: wrap;
+    min-height: 100%;
+    min-width: $min-catalog-width;
 }
 
 header {
-    padding-top: 42px;
-    padding-bottom: 22px;
+    padding: 42px 20px 22px;
     text-align: center;
 }
