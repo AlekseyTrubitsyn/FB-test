@@ -2,8 +2,10 @@
 
 .catalog {
     display: flex;
-    flex-wrap: wrap;
+
     width: 100%;
+
+    flex-wrap: wrap;
     justify-content: center;
 }
 
