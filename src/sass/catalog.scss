@@ -9,13 +9,13 @@
     justify-content: center;
 }
 
-@media (max-width: $max-tablet-width) and (min-width: $min-tablet-width) {
+@media (max-width: $max-catalog-width) and (min-width: $min-tablet-width) {
     .catalog {
         justify-content: space-around;
     }
 }
 
-@media (max-width: $min-tablet-width) {
+@media (max-width: $min-tablet-width - 1px) {
     .catalog {
         flex-direction: column;
     }

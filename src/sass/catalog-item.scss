@@ -42,8 +42,7 @@ $item-margin: 40;
 }
 
 @mixin color-modifiers($color) {
-    .catalog-item-header__corner {/*,
-    &:hover .catalog-item-header__corner {*/
+    .catalog-item-header__corner {
         @include corner-background($color);
 
         &::after {
@@ -307,11 +306,11 @@ $item-margin: 40;
     .catalog-item:nth-of-type(3) {
         display: block;
 
-        margin-right: auto;
-        margin-left: auto;
+        margin-right: $item-margin * 1px;
+        margin-left: $item-margin * 1px;
     }
-
 }
+
 @media (max-width: $min-tablet-width) {
     .catalog-item {
         margin-right: auto;
