@@ -6,8 +6,6 @@ $item-title-size: 48px;
 $main-background: white;
 $border-width: 4px;
 $border-radius: $border-width * 3;
-$border-color: $blue;
-$border: $border-width solid $border-color;
 
 $quantity-block-radius: 81px;
 $content-left-padding: 45px;
@@ -23,6 +21,24 @@ $item-margin: 40;
 
 @mixin corner-background($color) {
     background: linear-gradient(135deg, transparent 31px, $color 32px, $color 35px, $main-background 35px);
+}
+
+@mixin border-left($color) {
+    border-left: $border-width solid $color;
+}
+
+@mixin border-right($color) {
+    border-right: $border-width solid $color;
+}
+
+@mixin borders-left-right-bottom($color) {
+    border-right: $border-width solid $color;
+    border-bottom: $border-width solid $color;
+    border-left: $border-width solid $color;
+}
+
+@mixin border-top($color) {
+    border-top: $border-width solid $color;
 }
 
 .catalog-item {
@@ -50,7 +66,7 @@ $item-margin: 40;
     width: 45px;
     height: 45px;
 
-    @include corner-background($blue);
+    @include corner-background($item-default-color);
 
     &::after {
         position: absolute;
@@ -62,8 +78,9 @@ $item-margin: 40;
 
         content: '';
 
-        border-left: $border;
         background: white;
+
+        @include border-left($item-default-color);
     }
 }
 
@@ -74,10 +91,15 @@ $item-margin: 40;
     padding-top: 18px;
     padding-left: 4px;
 
-    border-top: $border;
-    border-right: $border;
     border-top-right-radius: $border-radius;
     background: $main-background;
+
+    @include border-top($item-default-color);
+    @include border-right($item-default-color);
+}
+
+.catalog-item-header__selected-hover-text {
+    display: none;
 }
 
 .catalog-item__main {
@@ -90,12 +112,11 @@ $item-margin: 40;
 
     cursor: pointer;
 
-    border-right: $border;
-    border-bottom: $border;
-    border-left: $border;
     border-bottom-right-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     background: white;
+
+    @include borders-left-right-bottom($item-default-color);
 }
 
 .catalog-item-main__title,
@@ -146,7 +167,7 @@ $item-margin: 40;
 
     color: white;
     border-radius: 50%;
-    background: $quantity-block-color;
+    background: $item-default-color;
 
     justify-content: center;
     align-items: center;
@@ -170,13 +191,74 @@ $item-margin: 40;
 
 .catalog-item-footer__link,
 .catalog-item-footer__link + span {
-    color: $link-color;
+    color: $item-default-color;
 }
 
 .catalog-item-footer__link {
     text-decoration: none;
 
-    border-bottom: 1px dashed $link-color;
+    border-bottom: 1px dashed $item-default-color;
+}
+
+.catalog-item__footer-text--selected,
+.catalog-item__footer-text--disabled {
+    display: none;
+}
+
+.catalog-item--disabled  .catalog-item__header,
+.catalog-item--disabled  .catalog-item__main {
+    cursor: default;
+}
+
+.catalog-item--disabled,
+.catalog-item--disabled .catalog-item-main__title,
+.catalog-item--disabled .catalog-item-main__subtitle,
+.catalog-item--disabled:hover,
+.catalog-item--disabled:hover .catalog-item-main__title,
+.catalog-item--disabled:hover .catalog-item-main__subtitle {
+    color: $item-disabled-color;
+}
+
+.catalog-item--disabled .catalog-item-header__corner,
+.catalog-item--disabled:hover .catalog-item-header__corner {
+    @include corner-background($item-disabled-color);
+
+    &::after {
+        @include border-left($item-disabled-color);
+    }
+}
+
+.catalog-item--disabled .catalog-item-header__text,
+.catalog-item--disabled:hover .catalog-item-header__text {
+    @include border-top($item-disabled-color);
+    @include border-right($item-disabled-color);
+}
+
+.catalog-item--disabled .catalog-item__main,
+.catalog-item--disabled:hover .catalog-item__main {
+    @include borders-left-right-bottom($item-disabled-color);
+}
+
+.catalog-item--disabled .catalog-item-main__image {
+    opacity: .5;
+}
+
+.catalog-item--disabled .catalog-item-main__quantity,
+.catalog-item--disabled:hover .catalog-item-main__quantity {
+    background: $item-disabled-color;
+}
+
+.catalog-item--disabled .catalog-item__footer {
+    color: $item-disabled-footer-color;
+}
+
+.catalog-item--disabled .catalog-item__footer-text--default,
+.catalog-item--disabled .catalog-item__footer-text--selected {
+    display: none;
+}
+
+.catalog-item--disabled .catalog-item__footer-text--disabled {
+    display: block;
 }
 
 @media (max-width: $max-catalog-width) {

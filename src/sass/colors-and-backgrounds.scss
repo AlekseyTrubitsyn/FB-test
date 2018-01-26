@@ -1,8 +1,22 @@
 $blue: #1698d9;
+$light-blue: #2ea8e5;
 $grey: #666666;
+$purple: #d91667;
+$ligth-purple: #e62e7a;
+$mid-light-grey: #b3b3b3;
+$light-grey: #d4d4d4;
+$ultra-light-grey: #d8d8d8;
+$yellow: #ffff66;
 
 $page-background: #242424 url("/img/bg.jpg");
 $item-main-background: white;
+
+$item-default-color: $blue;
+$item-default-hover-color: $light-blue;
+$item-selected-color: $purple;
+$item-selected-hover-color: $ligth-purple;
+$item-disabled-color: $mid-light-grey;
+$item-disabled-footer-color: $yellow;
 
 $link-color: $blue;
 $text-color: $grey;

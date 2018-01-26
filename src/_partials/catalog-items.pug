@@ -1,18 +1,43 @@
 each item in items
-  .catalog-item
-    .catalog-item__header
-      .catalog-item-header__corner
-      p.catalog-item-header__text= item.headerText
-    .catalog-item__main
-      h2.catalog-item-main__title= item.title
-      h3.catalog-item-main__subtitle= item.subtitle
-      each feature in item.description
-        p.catalog-item-main__description=feature
-      img(src=item.imageSrc width="312" height="268").catalog-item-main__image
-      p.catalog-item-main__quantity
-        span=item.quantity
-        span кг
-    .catalog-item__footer
-      p Чего сидишь? Порадуй котэ, 
-        a.catalog-item-footer__link(href="#") купи
-        span .
+  if item.disabled
+    .catalog-item.catalog-item--disabled
+      .catalog-item__header
+        .catalog-item-header__corner
+        p.catalog-item-header__text
+          span.catalog-item-header__default-text Сказочное заморское яство 
+          span.catalog-item-header__selected-hover-text Котэ&nbsp;не&nbsp;одобряет?
+      .catalog-item__main
+        h2.catalog-item-main__title= item.title
+        h3.catalog-item-main__subtitle= item.subtitle
+        each feature in item.description
+          p.catalog-item-main__description=feature
+        img(src=item.imageSrc width="312" height="268").catalog-item-main__image
+        p.catalog-item-main__quantity
+          span= item.quantity
+          span кг
+      .catalog-item__footer
+        p.catalog-item__footer-text--default Чего сидишь? Порадуй котэ, 
+          a.catalog-item-footer__link(href="#") купи
+          span .
+        p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.
+  else
+    .catalog-item
+      .catalog-item__header
+        .catalog-item-header__corner
+        p.catalog-item-header__text
+          span.catalog-item-header__default-text Сказочное заморское яство 
+          span.catalog-item-header__selected-hover-text Котэ&nbsp;не&nbsp;одобряет?
+      .catalog-item__main
+        h2.catalog-item-main__title= item.title
+        h3.catalog-item-main__subtitle= item.subtitle
+        each feature in item.description
+          p.catalog-item-main__description=feature
+        img(src=item.imageSrc width="312" height="268").catalog-item-main__image
+        p.catalog-item-main__quantity
+          span= item.quantity
+          span кг
+      .catalog-item__footer
+        p.catalog-item__footer-text--default Чего сидишь? Порадуй котэ, 
+          a.catalog-item-footer__link(href="#") купи
+          span .
+        p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.
