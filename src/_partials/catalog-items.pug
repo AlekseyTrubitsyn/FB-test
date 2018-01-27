@@ -11,7 +11,7 @@ each item in items
         h3.catalog-item-main__subtitle= item.subtitle
         each feature in item.description
           p.catalog-item-main__description=feature
-        img(src=item.imageSrc width="312" height="268").catalog-item-main__image
+        img(src=item.imageSrc width=item.imageWidth height=item.imageWidth alt=item.imageAlt).catalog-item-main__image
         p.catalog-item-main__quantity
           span= item.quantity
           span кг
@@ -30,7 +30,7 @@ each item in items
         h3.catalog-item-main__subtitle= item.subtitle
         each feature in item.description
           p.catalog-item-main__description=feature
-        img(src=item.imageSrc width="312" height="268").catalog-item-main__image
+        img(src=item.imageSrc width=item.imageWidth height=item.imageWidth alt=item.imageAlt).catalog-item-main__image
         p.catalog-item-main__quantity
           span= item.quantity
           span кг

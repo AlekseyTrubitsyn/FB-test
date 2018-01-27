@@ -8,6 +8,9 @@
     "subtitle": "с фуа-гра",
     "description": ["10 порций", "мышь в подарок"],
     "imageSrc": "./img/cat.png",
+    "imageWidth": "312",
+    "imageHeight": "268",
+    "imageAlt": "Нямушка с фуа-гра",
     "quantity": "0,5",
     "footerDescription": "Печень утки разварная с артишоками."
   }, {
@@ -18,6 +21,9 @@
     "subtitle": "с рыбой",
     "description": ["40 порций", "2 мыши в подарок"],
     "imageSrc": "./img/cat.png",
+    "imageWidth": "312",
+    "imageHeight": "268",
+    "imageAlt": "Нямушка с рыбой",
     "quantity": "2",
     "footerDescription": "Головы щучьи с чесноком да свежайшая сёмгушка."
   }, {
@@ -28,6 +34,9 @@
     "subtitle": "с курой",
     "description": ["100 порций", "5 мышей в подарок", "заказчик доволен"],
     "imageSrc": "./img/cat.png",
+    "imageWidth": "312",
+    "imageHeight": "268",
+    "imageAlt": "Нямушка с курой",
     "quantity": "5",
     "footerDescription": "Филе из цыплят с трюфелями в бульоне."
   }]
