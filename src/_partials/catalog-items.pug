@@ -1,42 +1,35 @@
 each item in items
-  if item.disabled
-    -var itemId = "item" + item.id;
-    .catalog-item.catalog-item--disabled(id=itemId)
-      .catalog-item__header
-        .catalog-item-header__corner
-        p.catalog-item-header__text
-          span.catalog-item-header__default-text Сказочное заморское яство
-      .catalog-item__main
-        h2.catalog-item-main__title= item.title
-        h3.catalog-item-main__subtitle= item.subtitle
-        each feature in item.description
-          p.catalog-item-main__description=feature
-        img(src=item.imageSrc width=item.imageWidth height=item.imageWidth alt=item.imageAlt).catalog-item-main__image
-        p.catalog-item-main__quantity
-          span= item.quantity
-          span кг
-      .catalog-item__footer
-        p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.
-  else
-    -var itemId = "item" + item.id;
-    .catalog-item(id=itemId)
-      .catalog-item__header
-        .catalog-item-header__corner
-        p.catalog-item-header__text
-          span.catalog-item-header__default-text Сказочное заморское яство 
+  -var itemId = "item" + item.id;
+  -var className = (item.disabled) ? "catalog-item catalog-item--disabled" : "catalog-item";
+
+  div(class=className id=itemId)
+    .catalog-item__header
+      .catalog-item-header__corner
+      p.catalog-item-header__text
+        span.catalog-item-header__default-text Сказочное заморское яство
+        if (!item.disabled)
           span.catalog-item-header__selected-hover-text Котэ&nbsp;не&nbsp;одобряет?
-      .catalog-item__main
-        h2.catalog-item-main__title= item.title
-        h3.catalog-item-main__subtitle= item.subtitle
-        each feature in item.description
+    .catalog-item__main
+      h2.catalog-item-main__title= item.title
+      h3.catalog-item-main__subtitle= item.subtitle
+      each feature in item.description
+        if (typeof(feature) === "object")
+          p.catalog-item-main__description
+            each substring in feature
+              if (typeof(substring) === "number")
+                b= substring
+              else
+                span= substring
+        else
           p.catalog-item-main__description=feature
-        img(src=item.imageSrc width=item.imageWidth height=item.imageWidth alt=item.imageAlt).catalog-item-main__image
-        p.catalog-item-main__quantity
-          span= item.quantity
-          span кг
-      .catalog-item__footer
+      img(src=item.imageSrc width=item.imageWidth height=item.imageHeight alt=item.imageAlt).catalog-item-main__image
+      p.catalog-item-main__quantity
+        span= item.quantity
+        span кг
+    .catalog-item__footer
+      p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.
+      -if (!item.disabled)
         p.catalog-item__footer-text--default Чего сидишь? Порадуй котэ, 
           a.catalog-item-footer__link(href="#") купи
           span .
         p.catalog-item__footer-text--selected= item.footerDescription
-        p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.

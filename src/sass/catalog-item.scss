@@ -7,7 +7,7 @@ $main-background: white;
 $border-width: 4px;
 $border-radius: $border-width * 3;
 
-$quantity-block-radius: 81px;
+$quantity-block-radius: 80px;
 $content-left-padding: 45px;
 $content-right-padding: 20px;
 
@@ -124,7 +124,7 @@ $item-margin: 40;
     font-size: 16px;
 
     width: 275px;
-    padding-top: 18px;
+    padding-top: 17px;
     padding-left: 4px;
 
     border-top-right-radius: $border-radius;
@@ -144,7 +144,7 @@ $item-margin: 40;
     display: flex;
     flex-direction: column;
 
-    min-height: 434px;
+    min-height: 435px;
 
     cursor: pointer;
 
@@ -167,13 +167,14 @@ $item-margin: 40;
 }
 
 .catalog-item-main__title {
+    padding-left: $content-left-padding - 2px;
     font-size: $item-title-size;
 }
 
 .catalog-item-main__subtitle {
     font-size: $item-title-size / 2;
 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .catalog-item-main__description {
@@ -192,14 +193,15 @@ $item-margin: 40;
     line-height: 22px;
 
     position: absolute;
-    right: 15px;
-    bottom: 15px;
+    right: 12px;
+    bottom: 12px;
 
     display: flex;
     flex-direction: column;
 
     width: $quantity-block-radius;
     height: $quantity-block-radius;
+    padding-top: 6px;
 
     color: white;
     border-radius: 50%;
@@ -218,7 +220,7 @@ $item-margin: 40;
     font-size: 13px;
     line-height: 16px;
 
-    padding-top: 14px;
+    padding-top: 13px;
 
     text-align: center;
 
@@ -231,6 +233,8 @@ $item-margin: 40;
 }
 
 .catalog-item-footer__link {
+    font-weight: bold;
+
     text-decoration: none;
 
     border-bottom: 1px dashed $item-default-color;
@@ -292,6 +296,7 @@ $item-margin: 40;
 
     .catalog-item__footer-text--disabled {
         display: block;
+        color: $yellow;
     }
 }
 
