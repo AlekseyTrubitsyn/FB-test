@@ -20,7 +20,7 @@ $item-margin: 40;
 }
 
 @mixin corner-background($color) {
-    background: linear-gradient(135deg, transparent 31px, $color 32px, $color 35px, $main-background 35px);
+    background: linear-gradient(135deg, transparent 31px, $color 31px, $color 35px, $main-background 35px);
 }
 
 @mixin border-left($color) {
@@ -99,8 +99,8 @@ $item-margin: 40;
 }
 
 .catalog-item-header__corner {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
 
     @include corner-background($item-default-color);
 
@@ -313,6 +313,9 @@ $item-margin: 40;
 
         margin-right: $item-margin * 1px;
         margin-left: $item-margin * 1px;
+
+        transition: .3s all;
+        transform: translateY(-20%) rotate(90deg);
     }
 }
 
