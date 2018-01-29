@@ -12,17 +12,23 @@ const gulp = require('gulp'),
 
 const paths = {
   public: './public/',
+  pug: './src/*.pug',
   sass: './src/sass/',
   css: './public/css/',
-  jsSrc: './src/js/',
-  js: './public/js/'
+  jsSrc: './src/js/**/*.js',
+  js: './public/js/',
+  fontsSrc: './src/fonts/*',
+  fonts: './public/fonts/',
+  imagesSrc: './src/img/*',
+  images: './public/img/',
+  jsonData: './src/data.json'
 };
 
 gulp.task('pug', function () {
-  return gulp.src('./src/**/*.pug')
+  return gulp.src(paths.pug)
     .pipe(data( function(file) {
                 return JSON.parse(
-                  fs.readFileSync('./src/data.json')
+                  fs.readFileSync(paths.jsonData)
                 );
               } ))
     .pipe(pug())
@@ -43,7 +49,7 @@ gulp.task('browser-sync', ['js', 'sass', 'pug'], function () {
 });
 
 gulp.task('sass', function () {
-  return gulp.src(paths.sass + '**/*.scss')
+  return gulp.src(paths.sass + 'style.scss')
     .pipe(sass({
       includePaths: [paths.sass],
       outputStyle: 'compressed'
@@ -59,9 +65,18 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function () {
-  console.log('js');
-  gulp.src(paths.jsSrc + "*.js")
+  gulp.src(paths.jsSrc)
       .pipe(gulp.dest(paths.js));
+});
+
+gulp.task('fonts', function() {
+  return gulp.src(paths.fontsSrc)
+    .pipe(gulp.dest(paths.fonts))
+});
+
+gulp.task('images', function() {
+  return gulp.src(paths.imagesSrc)
+    .pipe(gulp.dest(paths.images))
 });
 
 gulp.task('watch', function () {
@@ -72,4 +87,4 @@ gulp.task('watch', function () {
 
 gulp.task('build', ['js', 'sass', 'pug']);
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browser-sync', 'fonts', 'images', 'watch']);
