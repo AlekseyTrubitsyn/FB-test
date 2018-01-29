@@ -8,11 +8,14 @@ $border-width: 4px;
 $border-radius: $border-width * 3;
 
 $quantity-block-radius: 80px;
-$content-left-padding: 45px;
+$content-left-padding: 44px;
 $content-right-padding: 20px;
 
 $item-width: 320;
 $item-margin: 40;
+
+$header-corner-width: 46;
+$header-corner-height: 46;
 
 @mixin content-paddings {
     padding-right: $content-right-padding;
@@ -99,8 +102,11 @@ $item-margin: 40;
 }
 
 .catalog-item-header__corner {
-    width: 46px;
-    height: 46px;
+    $corner-width: $header-corner-width * 1px;
+    $corner-height: $header-corner-width * 1px;
+
+    width: $corner-width;
+    height: $corner-height;
 
     @include corner-background($item-default-color);
 
@@ -109,8 +115,8 @@ $item-margin: 40;
         bottom: 0;
         left: 0;
 
-        width: 45px;
-        height: calc(100% - 45px);
+        width: $header-corner-width * 1px;
+        height: calc(100% - 46px);
 
         content: '';
 
@@ -123,9 +129,9 @@ $item-margin: 40;
 .catalog-item-header__text {
     font-size: 16px;
 
-    width: 275px;
+    width: ($item-width - $header-corner-width) * 1px;
     padding-top: 17px;
-    padding-left: 4px;
+    padding-left: 2px;
 
     border-top-right-radius: $border-radius;
     background: $main-background;
@@ -140,11 +146,11 @@ $item-margin: 40;
 
 .catalog-item__main {
     position: relative;
+    margin-top: -1px;
+    padding-top: 0;
 
     display: flex;
     flex-direction: column;
-
-    min-height: 435px;
 
     cursor: pointer;
 
@@ -155,9 +161,9 @@ $item-margin: 40;
     @include borders-left-right-bottom($item-default-color);
 }
 
-.catalog-item-main__title,
-.catalog-item-main__subtitle,
-.catalog-item-main__description {
+.catalog-item-main__container {
+    min-height: 164px;
+
     @include content-paddings;
 }
 
@@ -167,14 +173,15 @@ $item-margin: 40;
 }
 
 .catalog-item-main__title {
-    padding-left: $content-left-padding - 2px;
+    margin-left: -3px;
     font-size: $item-title-size;
 }
 
 .catalog-item-main__subtitle {
     font-size: $item-title-size / 2;
+    line-height: 1.1;
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .catalog-item-main__description {
@@ -194,7 +201,7 @@ $item-margin: 40;
 
     position: absolute;
     right: 12px;
-    bottom: 12px;
+    bottom: 13px;
 
     display: flex;
     flex-direction: column;
@@ -220,7 +227,7 @@ $item-margin: 40;
     font-size: 13px;
     line-height: 16px;
 
-    padding-top: 13px;
+    padding-top: 12px;
 
     text-align: center;
 

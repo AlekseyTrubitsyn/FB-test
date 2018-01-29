@@ -10,18 +10,19 @@ each item in items
         if (!item.disabled)
           span.catalog-item-header__selected-hover-text Котэ&nbsp;не&nbsp;одобряет?
     .catalog-item__main
-      h2.catalog-item-main__title= item.title
-      h3.catalog-item-main__subtitle= item.subtitle
-      each feature in item.description
-        if (typeof(feature) === "object")
-          p.catalog-item-main__description
-            each substring in feature
-              if (typeof(substring) === "number")
-                b= substring
-              else
-                span= substring
-        else
-          p.catalog-item-main__description=feature
+      .catalog-item-main__container
+        h2.catalog-item-main__title= item.title
+        h3.catalog-item-main__subtitle= item.subtitle
+        each feature in item.description
+          if (typeof(feature) === "object")
+            p.catalog-item-main__description
+              each substring in feature
+                if (typeof(substring) === "number")
+                  b= substring
+                else
+                  span= substring
+          else
+            p.catalog-item-main__description=feature
       img(src=item.imageSrc width=item.imageWidth height=item.imageHeight alt=item.imageAlt).catalog-item-main__image
       p.catalog-item-main__quantity
         span= item.quantity
