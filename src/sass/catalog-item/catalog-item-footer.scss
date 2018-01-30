@@ -1,0 +1,43 @@
+@import '../colors-and-backgrounds';
+@import '../media-variables';
+@import 'mixins';
+
+.catalog-item__footer {
+    font-size: 13px;
+    line-height: 16px;
+
+    padding-top: 12px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.catalog-item-footer__link,
+.catalog-item-footer__link + span {
+    color: $item-default-color;
+}
+
+.catalog-item-footer__link {
+    font-weight: bold;
+
+    text-decoration: none;
+
+    border-bottom: 1px dashed $item-default-color;
+}
+
+.catalog-item__footer-text--selected,
+.catalog-item__footer-text--disabled {
+    display: none;
+}
+
+.catalog-item:hover {
+    .catalog-item-footer__link,
+    .catalog-item-footer__link + span {
+        color: $item-default-hover-color;
+    }
+
+    .catalog-item-footer__link {
+        border-bottom-color: $item-default-hover-color;
+    }
+}

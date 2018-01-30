@@ -1,7 +1,7 @@
 @import "fonts";
 @import "colors-and-backgrounds";
 @import "catalog";
-@import "catalog-item";
+@import "./catalog-item/catalog-item";
 @import "media-variables";
 
 * { box-sizing: border-box; }

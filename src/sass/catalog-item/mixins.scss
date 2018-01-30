@@ -1,0 +1,104 @@
+@import '../colors-and-backgrounds';
+@import '../media-variables';
+@import 'variables';
+
+@mixin content-paddings {
+    padding-right: $content-right-padding;
+    padding-left: $content-left-padding;
+}
+
+@mixin corner-background($color) {
+    background: linear-gradient(135deg, transparent 31px, $color 31px, $color 35px, $main-background 35px);
+}
+
+@mixin border-left($color) {
+    border-left: $border-width solid $color;
+}
+
+@mixin border-right($color) {
+    border-right: $border-width solid $color;
+}
+
+@mixin borders-left-right-bottom($color) {
+    border-right: $border-width solid $color;
+    border-bottom: $border-width solid $color;
+    border-left: $border-width solid $color;
+}
+
+@mixin border-top($color) {
+    border-top: $border-width solid $color;
+}
+
+@mixin color-modifiers($color) {
+    .catalog-item-header__corner {
+        @include corner-background($color);
+
+        &::after {
+            @include border-left($color);
+        }
+    }
+
+    .catalog-item-header__text {
+        @include border-top($color);
+        @include border-right($color);
+    }
+
+    .catalog-item__main {
+        @include borders-left-right-bottom($color);
+    }
+
+    .catalog-item-main__quantity {
+        background: $color;
+    }
+}
+
+@mixin header-selected-hover {
+    .catalog-item-header__default-text {
+        display: none;
+    }
+
+    .catalog-item-header__selected-hover-text {
+        display: block;
+
+        color: $item-selected-hover-color;
+    }
+}
+
+@mixin header-disabled {
+    .catalog-item__header {
+        cursor: default;
+    }
+}
+
+@mixin main-disabled {
+    .catalog-item__main {
+        cursor: default;
+    }
+
+    .catalog-item-main__image {
+        opacity: .5;
+    }
+}
+
+@mixin footer-selected {
+    .catalog-item__footer-text--default,
+    .catalog-item__footer-text--disabled {
+        display: none;
+    }
+
+    .catalog-item__footer-text--selected {
+        display: block;
+    }
+}
+
+@mixin footer-disabled {
+    .catalog-item__footer-text--default,
+    .catalog-item__footer-text--selected {
+        display: none;
+    }
+
+    .catalog-item__footer-text--disabled {
+        display: block;
+        color: $yellow;
+    }
+}

@@ -1,0 +1,82 @@
+@import '../colors-and-backgrounds';
+@import '../media-variables';
+@import 'mixins';
+
+.catalog-item__main {
+    position: relative;
+    margin-top: -1px;
+    padding-top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    background: $main-background;
+
+    @include borders-left-right-bottom($item-default-color);
+}
+
+.catalog-item-main__container {
+    min-height: $container-min-height;
+
+    @include content-paddings;
+}
+
+.catalog-item-main__title,
+.catalog-item-main__subtitle {
+    color: $title-color;
+}
+
+.catalog-item-main__title {
+    margin-left: -3px;
+    font-size: $item-title-size;
+}
+
+.catalog-item-main__subtitle {
+    font-size: $item-title-size / 2;
+    line-height: 1.1;
+
+    margin-bottom: 16px;
+}
+
+.catalog-item-main__description {
+    font-size: 14px;
+}
+
+.catalog-item-main__image {
+    margin-top: auto;
+
+    border-bottom-right-radius: $border-radius - $border-width;
+    border-bottom-left-radius: $border-radius - $border-width;
+}
+
+.catalog-item-main__quantity {
+    font-size: 21px;
+    line-height: 22px;
+
+    position: absolute;
+    right: 12px;
+    bottom: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: $quantity-block-radius;
+    height: $quantity-block-radius;
+    padding-top: 6px;
+
+    color: white;
+    border-radius: 50%;
+    background: $item-default-color;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-item-main__quantity span:first-child {
+    font-size: 42px;
+    line-height: 37px;
+}

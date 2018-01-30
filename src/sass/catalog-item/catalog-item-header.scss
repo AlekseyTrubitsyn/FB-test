@@ -1,0 +1,72 @@
+@import '../colors-and-backgrounds';
+@import '../media-variables';
+@import 'mixins';
+
+$header-corner-width: 46;
+$header-corner-height: 46;
+
+.catalog-item__header {
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    align-items: stretch;
+}
+
+.catalog-item-header__pre-corner {
+    position: absolute;
+    top: -28px;
+    left: -33px;
+
+    width: 66px;
+    height: 60px;
+
+    cursor: default;
+    transform: rotate(-45deg);
+}
+
+.catalog-item-header__corner {
+    $corner-width: $header-corner-width * 1px;
+    $corner-height: $header-corner-width * 1px;
+
+    width: $corner-width;
+    height: $corner-height;
+
+    @include corner-background($item-default-color);
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: $header-corner-width * 1px;
+        height: calc(100% - 46px);
+
+        content: '';
+
+        background: white;
+
+        @include border-left($item-default-color);
+    }
+}
+
+.catalog-item-header__text {
+    font-size: 16px;
+
+    width: ($item-width - $header-corner-width) * 1px;
+    padding-top: 17px;
+    padding-left: 2px;
+
+    border-top-right-radius: $border-radius;
+    background: $main-background;
+
+    @include border-top($item-default-color);
+    @include border-right($item-default-color);
+}
+
+.catalog-item-header__selected-hover-text {
+    display: none;
+}

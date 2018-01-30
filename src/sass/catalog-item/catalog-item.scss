@@ -1,0 +1,72 @@
+@import '../colors-and-backgrounds';
+@import '../media-variables';
+@import 'mixins';
+@import 'variables';
+@import 'catalog-item-header';
+@import 'catalog-item-main';
+@import 'catalog-item-footer';
+
+
+.catalog-item {
+    display: inline-block;
+
+    width: $item-width * 1px;
+    margin-right: $item-margin * 1px;
+    margin-bottom: $item-margin * 1px;
+    margin-left: $item-margin * 1px;
+
+    color: $text-color;
+
+    &:hover {
+        @include color-modifiers($item-default-hover-color);
+    }
+}
+
+.catalog-item--selected,
+.catalog-item--selected-hover,
+.catalog-item--selected-hover:hover  {
+    @include color-modifiers($item-selected-color);
+    @include footer-selected;
+}
+
+.catalog-item--selected:hover {
+    @include color-modifiers($item-selected-hover-color);
+    @include header-selected-hover;
+}
+
+.catalog-item--disabled  {
+    &,
+    &:hover {
+        @include color-modifiers($item-disabled-color);
+    }
+
+    @include header-disabled;
+    @include main-disabled;
+    @include footer-disabled;
+}
+
+@media (max-width: $max-catalog-width) {
+    .catalog-item {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: $max-tablet-width) and (min-width: $min-tablet-width) {
+    .catalog-item:nth-of-type(3) {
+        display: block;
+
+        margin-right: $item-margin * 1px;
+        margin-left: $item-margin * 1px;
+
+        transition: .3s all;
+        transform: translateY(-20%) rotate(90deg);
+    }
+}
+
+@media (max-width: $min-tablet-width) {
+    .catalog-item {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
