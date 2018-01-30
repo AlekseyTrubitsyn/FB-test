@@ -4,6 +4,7 @@ each item in items
 
   div(class=className id=itemId)
     .catalog-item__header
+      .catalog-item-header__pre-corner.disable-click
       .catalog-item-header__corner
       p.catalog-item-header__text
         span.catalog-item-header__default-text Сказочное заморское яство
@@ -27,7 +28,7 @@ each item in items
       p.catalog-item-main__quantity
         span= item.quantity
         span кг
-    .catalog-item__footer
+    .catalog-item__footer.disable-click
       p.catalog-item__footer-text--disabled Печалька, #{item.subtitle} закончился.
       -if (!item.disabled)
         p.catalog-item__footer-text--default Чего сидишь? Порадуй котэ, 

@@ -95,10 +95,23 @@ $header-corner-height: 46;
     position: relative;
 
     display: flex;
+    overflow: hidden;
 
     cursor: pointer;
 
     align-items: stretch;
+}
+
+.catalog-item-header__pre-corner {
+    position: absolute;
+    top: -28px;
+    left: -33px;
+
+    width: 66px;
+    height: 60px;
+
+    cursor: default;
+    transform: rotate(-45deg);
 }
 
 .catalog-item-header__corner {
